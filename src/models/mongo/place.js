@@ -2,7 +2,7 @@ import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
-const donationSchema = new Schema({
+const placeSchema = new Schema({
   title: String,
   difficulty: String,
   lat: String,
@@ -11,11 +11,11 @@ const donationSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  candidate: {
+  county: {
     type: Schema.Types.ObjectId,
-    ref: "Candidate",
+    ref: "County",
   },
 });
 
 
-export const Donation = Mongoose.model("Donation", donationSchema);
+export const Place = Mongoose.model("Place", placeSchema);

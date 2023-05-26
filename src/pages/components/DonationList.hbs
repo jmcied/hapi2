@@ -3,7 +3,7 @@
     <th>Amount</th>
     <th>Method donated</th>
     <th>Donor</th>
-    <th>Candidate</th>
+    <th>County</th>
   </thead>
   <tbody>
     {{#each donations}}
@@ -11,7 +11,7 @@
       <td>{{amount}}</td>
       <td>{{method}}</td>
       <td> {{donor.firstName}} {{donor.lastName}} </td>
-      <td>{{candidate.lastName}}, {{candidate.firstName}}</td>
+      <td>{{county.lastName}}, {{county.firstName}}</td>
     </tr>
     {{/each}}
   </tbody>

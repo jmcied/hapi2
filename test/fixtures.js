@@ -33,7 +33,7 @@ export const testUsers = [
   },
 ];
 
-export const testCandidates = [
+export const testCountys = [
   {
     firstName: "Lisa",
     lastName: "Simpson",
@@ -44,7 +44,7 @@ export const testCandidates = [
   },
 ];
 
-export const testDonations = [
+export const testPlaces = [
   {
     amount: 90,
     method: "cash",

@@ -1,14 +1,14 @@
 import Boom from "@hapi/boom";
-import { Candidate } from "../models/mongo/candidate.js";
+import { County } from "../models/mongo/county.js";
 
-export const candidatesApi = {
+export const countysApi = {
   find: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const candidates = await Candidate.find();
-      return candidates;
+      const countys = await County.find();
+      return countys;
     },
   },
 
@@ -18,13 +18,13 @@ export const candidatesApi = {
     },
     handler: async function (request, h) {
       try {
-        const candidate = await Candidate.findOne({ _id: request.params.id });
-        if (!candidate) {
-          return Boom.notFound("No Candidate with this id");
+        const county = await County.findOne({ _id: request.params.id });
+        if (!county) {
+          return Boom.notFound("No County with this id");
         }
-        return candidate;
+        return county;
       } catch (err) {
-        return Boom.notFound("No Candidate with this id");
+        return Boom.notFound("No County with this id");
       }
     },
   },
@@ -34,12 +34,12 @@ export const candidatesApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const newCandidate = new Candidate(request.payload);
-      const candidate = await newCandidate.save();
-      if (candidate) {
-        return h.response(candidate).code(201);
+      const newCounty = new County(request.payload);
+      const county = await newCounty.save();
+      if (county) {
+        return h.response(county).code(201);
       }
-      return Boom.badImplementation("error creating candidate");
+      return Boom.badImplementation("error creating county");
     },
   },
 
@@ -48,7 +48,7 @@ export const candidatesApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      await Candidate.remove({});
+      await County.remove({});
       return { success: true };
     },
   },
@@ -58,7 +58,7 @@ export const candidatesApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const response = await Candidate.deleteOne({ _id: request.params.id });
+      const response = await County.deleteOne({ _id: request.params.id });
       if (response.deletedCount == 1) {
         return { success: true };
       }

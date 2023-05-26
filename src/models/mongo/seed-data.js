@@ -20,8 +20,8 @@ export const seedData = {
       password: "secret",
     },
   },
-  candidates: {
-    _model: "Candidate",
+  countys: {
+    _model: "County",
     wexford: {
       firstName: "Wexford",
       lastName: "Leinster",
@@ -33,45 +33,45 @@ export const seedData = {
     //  office: "President",
     },
   },
-  donations: {
-    _model: "Donation",
+  places: {
+    _model: "Place",
     one: {
       title: "Duncannon Strand",
       difficulty: "Easy",
-      lat: "52.160858",
-      lng: "-7.152420",
+      lat: "52.22103",
+      lng: "-6.93127",
       donor: "->users.bart",
-      candidate: "->candidates.wexford",
+      county: "->countys.wexford",
     },
     two: {
       title: "Tintern Abbey",
       difficulty: "Medium",
-      lat: "52.149220",
-      lng: "-6.994620",
+      lat: "52.23752",
+      lng: "-6.83977",
       donor: "->users.marge",
-      candidate: "->candidates.wexford",
+      county: "->countys.wexford",
     },
     three: {
       title: "Tramore Strand",
       difficulty: "Easy",
-      lat: "52.161290",
-      lng: "-7.231540",
+      lat: "52.15969",
+      lng: "-7.14430",
       donor: "->users.homer",
-      candidate: "->candidates.waterford",
+      county: "->countys.waterford",
     },
   },
 };
 
 
-/* donations: {
-    _model: "Donation",
+/* places: {
+    _model: "Place",
     one: {
       amount: 40,
       method: "paypal",
       lat: "52.160858",
       lng: "-7.152420",
       donor: "->users.bart",
-      candidate: "->candidates.wexford",
+      county: "->countys.wexford",
     },
     two: {
       amount: 90,
@@ -79,7 +79,7 @@ export const seedData = {
       lat: "52.149220",
       lng: "-6.994620",
       donor: "->users.marge",
-      candidate: "->candidates.wexford",
+      county: "->countys.wexford",
     },
     three: {
       amount: 430,
@@ -87,7 +87,7 @@ export const seedData = {
       lat: "52.161290",
       lng: "-7.231540",
       donor: "->users.homer",
-      candidate: "->candidates.waterford",
+      county: "->countys.waterford",
     },
   },
 };

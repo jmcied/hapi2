@@ -1,44 +1,44 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 
-export const donationsApi = {
+export const placesApi = {
   findAll: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const donations = db.donationStore.getAllDonations();
-      return donations;
+      const places = db.placeStore.getAllPlaces();
+      return places;
     },
   },
-  findByCandidate: {
+  findByCounty: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const donations = await db.donationStore.getDonationsByCandidate(request.params.id);
-      return donations;
+      const places = await db.placeStore.getPlacesByCounty(request.params.id);
+      return places;
     },
   },
 
-  makeDonation: {
+  makePlace: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const candidate = await db.candidateStore.findById(request.params.id);
-      if (!candidate) {
-        return Boom.notFound("No Candidate with this id");
+      const county = await db.countyStore.findById(request.params.id);
+      if (!county) {
+        return Boom.notFound("No County with this id");
       }
-      const donation = await db.donationStore.donate(
+      const place = await db.placeStore.donate(
         request.payload.title,
         request.payload.method,
         request.auth.credentials,
-        candidate,
+        county,
         request.payload.lat,
         request.payload.lng,
     );
-    return donation;
+    return place;
     },
   },
 
@@ -47,7 +47,7 @@ export const donationsApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      await db.donationStore.deleteAll();
+      await db.placeStore.deleteAll();
       return { success: true };
     },
   },

@@ -1,19 +1,19 @@
 import { userMongoStore } from "./mongo/user-mongo-store.js";
-import { donationMongoStore } from "./mongo/donation-mongo-store.js";
-import { candidateMongoStore } from "./mongo/candidate-mongo-store.js";
+import { placeMongoStore } from "./mongo/place-mongo-store.js";
+import { countyMongoStore } from "./mongo/county-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
   userStore: null,
-  donationStore: null,
-  candidateStore: null,
+  placeStore: null,
+  countyStore: null,
 
   init(storeType) {
     switch (storeType) {
       case "mongo":
         this.userStore = userMongoStore;
-        this.donationStore = donationMongoStore;
-        this.candidateStore = candidateMongoStore;
+        this.placeStore = placeMongoStore;
+        this.countyStore = countyMongoStore;
         connectMongo();
         break;
       default:
