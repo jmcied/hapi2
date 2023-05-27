@@ -46,21 +46,21 @@ export const testCountys = [
 
 export const testPlaces = [
   {
-    amount: 90,
-    method: "cash",
-    lat: "52.160858",
-    lng: "-7.152420",
+    title: "Hook Head",
+    difficulty: "Easy",
+    lat: "52.124",
+    lng: "-6.929",
   },
   {
-    amount: 80,
-    method: "cash",
-    lat: "52.149220",
-    lng: "-6.994620",
+    title: "JFK Park",
+    difficulty: "Medium",
+    lat: "52.321",
+    lng: "-6.933",
   },
   {
-    amount: 50,
-    method: "paypal",
-    lat: "52.161290",
-    lng: "-7.231540",
+    title: "Slieve Coillte",
+    difficulty: "Hard",
+    lat: "52.337",
+    lng: "-6.934",
   },
 ];
