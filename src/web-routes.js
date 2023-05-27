@@ -11,7 +11,9 @@ export const webRoutes = [
 
   { method: "GET", path: "/donate", config: placesController.index },
   { method: "POST", path: "/donate", config: placesController.donate },
+  { method: "POST", path: "/donte/{id}/uploadimage", config: placesController.uploadImage },
   { method: "GET", path: "/report", config: placesController.report },
+  
 
   {
     method: "GET",

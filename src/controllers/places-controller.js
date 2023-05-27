@@ -29,4 +29,28 @@ export const placesController = {
       }
     },
   },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const place = await db.placeStore.getPlaceById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          place.img = url;
+          await db.placeStore.updatePlace(place);
+        }
+        return h.redirect(`/place/${place._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/place/${place._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
+    },
+  },
 };
