@@ -9,9 +9,9 @@ export const webRoutes = [
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
 
-  { method: "GET", path: "/donate", config: placesController.index },
-  { method: "POST", path: "/donate", config: placesController.donate },
-  { method: "POST", path: "/donte/{id}/uploadimage", config: placesController.uploadImage },
+  { method: "GET", path: "/addPlace", config: placesController.index },
+  { method: "POST", path: "/addPlace", config: placesController.addPlace },
+  { method: "POST", path: "/addPlace/{id}/uploadimage", config: placesController.uploadImage },
   { method: "GET", path: "/report", config: placesController.report },
   
 

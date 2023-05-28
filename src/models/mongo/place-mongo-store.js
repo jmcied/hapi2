@@ -11,7 +11,7 @@ export const placeMongoStore = {
     return places;
   },
 
-  async donate(title, difficulty, donor, county, lat, lng) {
+  async addPlace(title, difficulty, donor, county, lat, lng) {
     const newPlace = new Place({
       title,
       difficulty,

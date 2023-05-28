@@ -30,7 +30,7 @@ export const placesApi = {
       if (!county) {
         return Boom.notFound("No County with this id");
       }
-      const place = await db.placeStore.donate(
+      const place = await db.placeStore.addPlace(
         request.payload.title,
         request.payload.method,
         request.auth.credentials,
